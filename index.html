@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aria-Comps</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Hamburgermenu -->
+      <button
+        id="menuButton"
+        aria-expanded="false"
+        aria-controls="menuContent"
+        aria-haspopup="true"
+      >
+        Meny
+      </button>
+      <nav hidden id="menuContent" aria-labelledby="menuLebel">
+        <ul>
+          <li><a href="#">Hem</a></li>
+          <li><a href="#">Om oss</a></li>
+          <li><a href="#">Tjänster</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Modal Öppna -->
+      <button
+        id="openModalBtn"
+        aria-controls="accessibleModal"
+        aria-label="Open Modal 1"
+        aria-describedby="description1"
+      >
+        Öppna modalfönster 1
+      </button>
+
+      <!-- Modal Overlay -->
+      <div id="modalOverlay" aria-hidden="true"></div>
+
+      <!-- Modal Container -->
+      <div
+        hidden
+        id="accessibleModal"
+        aria-labelledby="modal_Title"
+        aria-modal="true"
+        role="modal"
+      >
+        <h2 id="modal_Title">Exempel på modalfönster</h2>
+        <p id="description1">Här är lite text i modalfönstret.</p>
+        <button id="closeModalBtn" tabindex="0">Stäng</button>
+      </div>
+
+      <!-- Fördelarna med att använda HTML-elementet <dialog> är att den har inbyggd semantik för tillgänglighet som gör att det blir mindre jobb för utvecklare och att fler webbapplikationer blir tillgängliga. Dessutom har elementet redan ARIA roles ("role="dialog") som gör det enklare för hjälpmedel som t.ex: röststyring att förmedela syftet med dialog-rutan till användare med funktionsvariationer.   -->
+
+      <!-- Dialog Open -->
+      <button
+        id="openDialogBtn"
+        aria-controls="accessibleDialog"
+        aria-label="Open Modal 2"
+      >
+        Öppna modalfönster 2
+      </button>
+
+      <!-- Dialog Container -->
+      <dialog
+        id="accessibleDialog"
+        aria-labelledby="dialog_Title"
+        aria-label="true"
+        aria-hidden="true"
+        aria-describedby="description2"
+      >
+        <h2 id="dialog_Title">
+          Exempel på tillgängligt modalfönster med &lt;dialog&gt;
+        </h2>
+        <p id="description2">Här är innehållet i modalfönstret.</p>
+        <button id="closeDialogBtn">Stäng</button>
+      </dialog>
+    </main>
+
+    <script src="code.js"></script>
+  </body>
+</html>
